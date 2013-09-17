@@ -2,6 +2,8 @@
   "name": "johannez/chargify",
   "description": "Interact with the Chargify API v1",
   "license": "MIT",
+  "type": "library",
+  "homepage": "https://github.com/johannez/chargify",
   "authors": [
     {
       "name": "Johannes",
