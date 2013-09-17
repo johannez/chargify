@@ -61,6 +61,9 @@ abstract class AbstractResource {
             $resource = new $class($value);
             $this->{$key} = $resource;
           }
+          else {
+            $this->{$key} = $value;
+          }
         }
         else {
           if (isset($filter[$key]))
