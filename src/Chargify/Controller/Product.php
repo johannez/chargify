@@ -2,7 +2,7 @@
 
 namespace Chargify\Controller;
 
-use \Chargify\Resource\Product as Resource;
+use \Chargify\Resource\ProductResource as Resource;
 
 class Product extends AbstractController {
 
@@ -94,21 +94,11 @@ class Product extends AbstractController {
   public function create($family_id, $data) {
     $product = null;
 
-    // TODO: Move this into the test file.
-    // $data = array(
-    //   'product' => array(
-    //     'name' => 'Basic Plan',
-    //     'handle' => 'basic',
-    //     'description' => 'This is our basic plan.',
-    //     'accounting_code' => '123',
-    //     'request_credit_card' => true,
-    //     'price_in_cents' => 1000,
-    //     'interval' => 1,
-    //     'interval_unit' => 'month'
-    //   )
-    // );
-
     $response = $this->request('product_families/' . $family_id . '/products', $data, 'POST');
+
+    if (is_array($response) && is_array($response['product'])) {
+      $product = new Resource($response['product']);
+    }
 
     return $product;
   }

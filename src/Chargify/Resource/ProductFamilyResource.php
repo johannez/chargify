@@ -2,7 +2,7 @@
 
 namespace Chargify\Resource;
 
-class ProductFamily extends AbstractResource {
+class ProductFamilyResource extends AbstractResource {
     public $name;
     public $handle;
     public $id;

@@ -25,11 +25,12 @@ abstract class AbstractController {
         break;
 
       case 'PUT':
-
+        $request = $this->client->put($uri);
+        $request->setBody(json_encode($body));
         break;
 
       case 'DELETE':
-
+        $request = $this->client->delete($uri);
         break;
 
       default: // GET
@@ -39,6 +40,7 @@ abstract class AbstractController {
     $response = $request->send();
 
     if ($response->isSuccessful()) {
+      // TODO: Test if the response is JSON.
       $data = $response->json();
     }
 

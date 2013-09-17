@@ -2,7 +2,7 @@
 
 namespace Chargify\Resource;
 
-class Product extends AbstractResource {
+class ProductResource extends AbstractResource {
   public $id;
   public $price_in_cents;
   public $name;
@@ -30,7 +30,8 @@ class Product extends AbstractResource {
     return 'product';
   }
 
-  public function getFilter() { return array(
+  public function getFilter() {
+    return array(
       'created_at' => function($value) { return new \DateTime($value); },
       'updated_at' => function($value) { return new \DateTime($value); },
       'archived_at' => function($value) { return new \DateTime($value); },

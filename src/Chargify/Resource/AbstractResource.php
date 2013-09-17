@@ -55,7 +55,7 @@ abstract class AbstractResource {
       if (property_exists($this, $key)) {
         if (is_array($value)) {
           // Must be a resource, so let's check if there is a class for this.
-          $class = $this->normalizeClassName($key);
+          $class = $this->normalizeClassName($key) . 'Resource';
 
           if (class_exists($class)) {
             $resource = new $class($value);

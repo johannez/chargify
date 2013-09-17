@@ -3,7 +3,7 @@
 
 namespace Chargify\Resource;
 
-class Customer extends AbstractResource {
+class CustomerResource extends AbstractResource {
   public $first_name;
   public $last_name;
   public $address;
@@ -20,9 +20,12 @@ class Customer extends AbstractResource {
   public $created_at;
   public $updated_at;
 
-  public function getName() { return 'customer'; }
+  public function getName() {
+    return 'customer';
+  }
 
-  public static function getFilter() { return array(
+  public function getFilter() {
+    return array(
       'created_at' => function($value) { return new \DateTime($value); },
       'updated_at' => function($value) { return new \DateTime($value); },
     );
