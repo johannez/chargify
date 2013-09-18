@@ -2,8 +2,8 @@ Chargify API
 ===
 
 This library provides you with functionality to interact with the
-[Chargify](http://chargify.com/) payment platform. It's build according to
-the [Chargify API](http://doc.chargify.com) version 1.
+[Chargify](http://chargify.com/) payment platform. It's built according to
+the [Chargify API](http://docs.chargify.com/api-introduction) version 1.
 
 ### Supported Resources
 
@@ -21,7 +21,7 @@ the [Chargify API](http://doc.chargify.com) version 1.
 
 ### Installation
 
-Easiest way would be using [Composer](http://getcomposer.org) and this to
+Easiest way would be using [Composer](http://getcomposer.org) and adding this to
 the composer.json requirement section.
 
 ```json
