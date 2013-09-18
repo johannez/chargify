@@ -45,11 +45,35 @@ with:
 
 ```php
 <?php
-$controller = new \Chargify\Controller\Factory::build(TYPE, DOMAIN, API_KEY);
+// $type Singular lower-case name of a suported resource
+// $domain Unique sub-domain name (https://DOMAIN.chargify.com)
+// $api_key API key that you get through your Chargify environment.
+$controller = new \Chargify\Controller\Factory::build($type, $domain, $api_key);
 ```
 
-TYPE is the singular lower-case name of a suported resource
-DOMAIN is your unique sub-domain name (https://DOMAIN.chargify.com)
-API_KEY is the API key that you get through your Chargify environment.
+For example to get a listing of all products in the system:
+```php
+<?php
 
+$pc = new \Chargify\Controller\Factory::build('product', YOUR_DOMAIN, YOUR_API_KEY);
+$products = $pc->getAll();
+```
+
+Sending data to Chargify is easy as well.
+```php
+<?php
+
+$data = array(
+  'customer' => array(
+    'first_name' => 'Joe',
+    'last_name' => 'Smith',
+    'email' => 'joe4@example.com',
+    'organization' => 'Example Corp.',
+    'reference' => 'js21',
+  )
+);
+
+$cc = new \Chargify\Controller\Factory::build('customer', YOUR_DOMAIN, YOUR_API_KEY);
+$new_customer = $cc->create($data);
+```
 
