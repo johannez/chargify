@@ -17,7 +17,7 @@
     </testsuite>
   </testsuites>
   <php>
-    <var name="chargify_domain" value="2tabs"/>
-    <var name="chargify_api_key" value="R3XvWkDgL8F7ENxpxL"/>
+    <var name="chargify_domain" value="DOMAIN"/>
+    <var name="chargify_api_key" value="API_KEY"/>
   </php>
 </phpunit>
