@@ -15,6 +15,9 @@ abstract class AbstractResource {
       throw new \Exception(t('Cannot create a resource instance without raw data from the API.'));
     }
 
+    // Set the default time zone to EST as the local system is unreliable.
+    date_default_timezone_set('America/New_York');
+
     $this->data = $data;
 
     if ($processData) {
@@ -66,10 +69,13 @@ abstract class AbstractResource {
           }
         }
         else {
-          if (isset($filter[$key]))
+          if (isset($filter[$key])) {
             $this->{$key} = $filter[$key]($value);
-          else
+          }
+          else {
             $this->{$key} = $value;
+          }
+
         }
       }
     }
