@@ -8,6 +8,29 @@ use Exception;
 
 class Factory
 {
+  private $domain = null;
+  private $api_key = null;
+
+  public function __construct($domain, $api_key)
+  {
+    $this->domain = $domain;
+    $this->api_key = $api_key;
+  }
+
+  /**
+   * Simulates an instance call but converts the instance method into the name
+   * parameter of a static build call
+   *
+   * eg: $factory->product() becomes Factory::Build('product')
+   *
+   * @param string $name name of method
+   * @return Chargify\Controller
+   */
+  public function __call($name)
+  {
+    return self::build($name, $this->domain, $this->api_key);
+  }
+
   public static function build($type, $domain, $api_key) {
 
     // Get the base url for all the connections.
