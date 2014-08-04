@@ -26,7 +26,7 @@ class Factory
    * @param string $name name of method
    * @return Chargify\Controller
    */
-  public function __call($name)
+  public function __call($name, $args)
   {
     return self::build($name, $this->domain, $this->api_key);
   }
