@@ -1,5 +1,5 @@
 {
-    "name": "esokullu/chargify",
+    "name": "johannez/chargify",
     "description": "Interact with the Chargify API v1",
     "license": "MIT",
     "type": "library",
