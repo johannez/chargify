@@ -106,4 +106,16 @@ class Customer extends AbstractController
         return $customer;
     }
 
+    /**
+    * Delete a chargify customer.
+    * @param $id
+    * @return array|bool|float|int|null|string
+    *
+    */
+    public function delete($id)
+    {
+        $response = $this->request('customers/' . $id, [], 'DELETE');
+        return [];
+    }
+
 }
