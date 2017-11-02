@@ -12,11 +12,11 @@ class Subscription extends AbstractController
      *
      * @return    subscription objects
      */
-    public function getAll($page=0)
+    public function getAll($page=1)
     {
         $subscriptions = array();
         // Get the raw data from Chargify.
-        $response = $this->request('subscriptions?per_page=200&page='.$page);
+        $response = $this->request('subscriptions.json?per_page=200&page='.$page);
 
         // Convert the raw data into resource objects.
         foreach ($response as $data ) {
